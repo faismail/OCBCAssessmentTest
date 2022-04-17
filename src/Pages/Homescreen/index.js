@@ -1,5 +1,5 @@
 import React, { useState, useEffect, } from 'react';
-import { StyleSheet, TouchableOpacity, ScrollView, Image  } from 'react-native';
+import { StyleSheet, TouchableOpacity, ScrollView, Image, LogBox  } from 'react-native';
 import { Card, Container, Text, View,  Col, } from 'native-base';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { useIsFocused } from '@react-navigation/native';
@@ -104,6 +104,8 @@ const Homescreen = ({navigation}) => {
 useEffect(() => {
     getBalance()
     getTransactions()
+    LogBox.ignoreLogs(['Sending `onAnimatedValueUpdate` with no listeners registered.'])
+
 
 }, [isFocused]);
 
@@ -216,7 +218,7 @@ const styles = StyleSheet.create ({
     },
 
     formInput:{
-    width: RFPercentage(46),
+    width: '90%',
     height: RFPercentage(25),
     flexDirection:'row',
     justifyContent:'space-evenly',
